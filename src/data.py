@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import csv
 
 DATA_ROOT = Path(os.environ.get("DATA_ROOT", "data/raw"))
 LANGS = ("en", "tr", "zh")
@@ -20,3 +21,29 @@ def load_split(split: str, lang: str) -> list[str]:
 def n_chars(lines: list[str]) -> int:
     """Total Unicode code points across the sentences (newlines excluded)."""
     return sum(len(line) for line in lines)
+
+def corpus_stats() -> list[dict]:
+    """Per (split, language): sentences, characters, distinct characters."""
+    rows = []
+    for split in SPLITS:
+        for lang in LANGS: 
+            lines = load_split(split, lang)
+            chars = n_chars(lines)
+            rows.append({
+                "split": split, 
+                "lang": lang, 
+                "sentences": len(lines),
+                "chars": chars,
+                "distinct_chars": len({ch for line in lines for ch in line}),
+                "chars_per_sentence": round(chars/len(lines))
+            })
+    return rows
+
+def write_stats(path: Path = Path("results/corpus_stats.csv")) -> None:
+    rows = corpus_stats()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"wrote {path} ({len(rows)} rows)")

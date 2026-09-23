@@ -1,0 +1,10 @@
+split,lang,sentences,chars,distinct_chars,chars_per_sentence
+train,en,36004,2946215,678,82
+train,tr,30379,2946140,508,97
+train,zh,75962,2946177,9215,39
+valid,en,4540,368269,227,81
+valid,tr,3735,368383,234,99
+valid,zh,9554,368266,5843,39
+test,en,4472,368309,201,82
+test,tr,3792,368342,250,97
+test,zh,9430,368265,5780,39
