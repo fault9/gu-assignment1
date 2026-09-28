@@ -5,28 +5,19 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
-# corpus — never commit the data; it lives on mltgpu at /srv/data/lt2326-h26/a1/
-# and is mirrored locally via scripts/sync_data.sh
-data/raw/
-data/cache/
+# corpus and tokenized caches — regenerable, never committed.
+# The corpus lives on mltgpu at /srv/data/lt2326-h26/a1/
+data/
 *.npy
 *.bin
 
-# training run internals — keep logs and selected checkpoints, drop the rest
-results/runs/**/*.pt
-!results/runs/**/best.pt
-!results/runs/**/final.pt
+# model checkpoints — added deliberately before submission, not during development
+*.pt
 
-# latex build artifacts
-report/*.aux
-report/*.log
-report/*.out
-report/*.bbl
-report/*.blg
-report/*.synctex.gz
+# local working files
+docs/
+report/
+ai_notes.md
 
 # os
 .DS_Store
-
-# NOTE: docs/ IS tracked — it is the working plan and it syncs between the
-# desktop (3090, training) and mltgpu (verification). See docs/15, D28.

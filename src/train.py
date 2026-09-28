@@ -84,8 +84,8 @@ def train(tokenizer_name, vocab_size, steps=2000, batch_size=64, context=256,
             val_losses = evaluate(model, valid_streams, sampler,
                                   batch_size=batch_size, context=context)
 
-            # one JSON object per line: survives a crash, and doc 07 reads it
-            # back to plot the learning curves without retraining
+            # one JSON object per line: survives a crash, and can be read back
+            # to plot the learning curves without retraining
             log_entry = {"step": step,
                          "train_loss": round(loss.item(), 4),
                          "val_en": val_losses["en"],
@@ -102,7 +102,7 @@ def train(tokenizer_name, vocab_size, steps=2000, batch_size=64, context=256,
                   f" zh {val_losses['zh']:.2f})")
 
             # keep the weights from whenever validation loss was lowest --
-            # this is the checkpoint doc 09 evaluates on the test set
+            # this is the checkpoint the final test evaluation uses
             if val_losses["mean"] < best_val_loss:
                 best_val_loss = val_losses["mean"]
                 torch.save({"model": model.state_dict(),   # the learned weights
