@@ -1,0 +1,2 @@
+{"step": 25, "train_loss": 6.645, "val_en": 6.1091, "val_tr": 6.2548, "val_zh": 7.4349, "val_mean": 6.5996}
+{"step": 50, "train_loss": 6.53, "val_en": 5.8619, "val_tr": 5.9593, "val_zh": 7.3549, "val_mean": 6.392}
