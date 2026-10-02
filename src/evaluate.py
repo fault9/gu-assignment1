@@ -30,7 +30,7 @@ def load_model(tokenizer):
 
 def token_losses (model, stream):
     """loss for every token in the stream"""
-    ids = torch.tensor(np.concatenate([[EOS], stream], dtype=torch.long, device=DEVICE)
+    ids = torch.tensor(np.concatenate([[EOS], stream]), dtype=torch.long, device=DEVICE)
 
     losses = [] # save each loss here
 
@@ -40,4 +40,11 @@ def token_losses (model, stream):
             end = min(start + model.context, len(stream))
             inputs = ids[start:end] # what model reads
             targets = ids[start+1:end+1] # what model should guess - one step ahead
-    
+
+            # model wants a batch of pieces, I have one piece: shape (256) -> (1, 256)
+            predictions = model(inputs.unsqueeze(0))
+            loss = cross_entropy(predictions[0], targets, reduction="none")
+            losses.append(loss)
+
+    # add all pieces together, move from gpu to cpu
+    return torch.cat(losses).cpu().numpy()
