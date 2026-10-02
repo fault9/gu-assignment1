@@ -44,8 +44,8 @@ def evaluate(model, token_streams, sampler, num_batches=20,
     model.train()                      # dropout back on
     return losses
 
-def train(tokenizer_name, vocab_size, steps=2000, batch_size=64, context=256,
-          learning_rate=3e-4, eval_every=100, seed=42):
+def train(tokenizer_name, vocab_size, steps=6000, batch_size=64, context=256,
+          learning_rate=3e-4, eval_every=200, seed=42):
     """Train one model for a fixed number of optimiser updates.
     """
     # fixed random seeds so the run can be reproduced 
