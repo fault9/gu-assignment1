@@ -7,8 +7,9 @@ from pathlib import Path
 import torch
 import numpy as np
 from torch.nn.functional import cross_entropy
-from src.dataset import EOS
+import math
 
+from src.dataset import EOS
 from src.model import TransformerLM
 from src.train import DEVICE, RESULTS_DIR
 
@@ -48,3 +49,9 @@ def token_losses (model, stream):
 
     # add all pieces together, move from gpu to cpu
     return torch.cat(losses).cpu().numpy()
+
+import math
+
+def bits_per_char(losses, lines):
+    total_bits = losses.sum() / math.log(2)
+
