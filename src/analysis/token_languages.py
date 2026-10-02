@@ -2,7 +2,7 @@
 
 import numpy as np
 from src.data import LANGS
-from src.dataset import token_stream
+from src.dataset import token_stream,EOS
 from src.analysis.token_stats import load_tokenizer
 
 BPE_TOKENIZERS = ("bpe_2k", "bpe_10k")
@@ -21,5 +21,6 @@ def count_tokens(tokenizer):
 
         #bincount counts frequency of id appearance
         counts[lang] = np.bincount(stream, minlength=vocab_size)
+        counts[lang][EOS] = 0
 
     return counts 
