@@ -59,3 +59,28 @@ def bits_per_char(losses, stream, lines):
     chars = n_chars(lines)
     return total_bits / chars
 
+def sentence_bpc(losses, stream, lines):
+    """returns BPC per sentence, in same order as lines"""
+
+    sentence_bits = [] # total bits of each sentence here
+    
+    bits = 0.0 # bits of sentence currently being read
+
+    for loss, token in zip(losses, stream):
+        if token == EOS:
+            sentence_bits.append(bits)
+            bits = 0.0 # reset
+        else:
+            bits += loss / math.log(2)
+
+    # divide each sentence's bits by num of chars
+    scores = []
+
+    for bits, line in zip(sentence_bits, lines):
+        chars = len(line)
+
+        if chars == 0:
+            chars = 1 # avoid zero division
+        scores.append(bits/chars)
+
+    return scores
