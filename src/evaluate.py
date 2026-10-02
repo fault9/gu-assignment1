@@ -20,6 +20,7 @@ def load_model(tokenizer):
 
     model = TransformerLM(checkpoint["vocab_size"], context=checkpoint["context"])
     model.load_state_dict(checkpoint["model"]) # copies trained weights to the new model
+    model.to(DEVICE) # moves the model to the GPU
     model.eval() # begins eval mode, no dropout
 
     return model
