@@ -9,6 +9,7 @@ import numpy as np
 from torch.nn.functional import cross_entropy
 import math
 
+from src.data import load_split, n_chars
 from src.dataset import EOS
 from src.model import TransformerLM
 from src.train import DEVICE, RESULTS_DIR
@@ -50,8 +51,11 @@ def token_losses (model, stream):
     # add all pieces together, move from gpu to cpu
     return torch.cat(losses).cpu().numpy()
 
-import math
 
-def bits_per_char(losses, lines):
-    total_bits = losses.sum() / math.log(2)
+def bits_per_char(losses, stream, lines):
+    # losses are in nats, divide by log(2) to turn them into bits, 
+    # does not count EOS tokens
+    total_bits = losses[stream != EOS].sum() / math.log(2)
+    chars = n_chars(lines)
+    return total_bits / chars
 
