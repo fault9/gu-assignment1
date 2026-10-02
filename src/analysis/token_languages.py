@@ -17,7 +17,7 @@ def count_tokens(tokenizer):
     counts = {} 
 
     for lang in LANGS:
-        stream = token_stream(tokenizer, "train". lang)
+        stream = token_stream(tokenizer, "train", lang)
 
         #bincount counts frequency of id appearance
         counts[lang] = np.bincount(stream, minlength=vocab_size)
