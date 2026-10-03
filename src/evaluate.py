@@ -8,9 +8,11 @@ import torch
 import numpy as np
 from torch.nn.functional import cross_entropy
 import math
+import csv
 
-from src.data import load_split, n_chars
-from src.dataset import EOS
+
+from src.data import load_split, n_chars, LANGS
+from src.dataset import EOS, token_stream
 from src.model import TransformerLM
 from src.train import DEVICE, RESULTS_DIR
 
@@ -80,7 +82,63 @@ def sentence_bpc(losses, stream, lines):
         chars = len(line)
 
         if chars == 0:
-            chars = 1 # avoid zero division
+            chars = 1 #avoid zero division
         scores.append(bits/chars)
 
     return scores
+
+UNK = 1
+
+if __name__ == "__main__":
+    results = []
+    sentence_scores = {"en": {}, "tr": {}, "zh": {}}
+    for tokenizer in TOKENIZERS:
+        model = load_model(tokenizer)
+        all_bits = 0  
+        all_chars = 0 
+        for lang in LANGS:
+            lines = load_split("test", lang)
+            stream = token_stream(tokenizer, "test", lang)
+            losses = token_losses(model, stream)
+            bpc = bits_per_char(losses, stream, lines)
+            chars = n_chars(lines)
+            results.append({
+                "tokenizer": tokenizer,
+                "lang": lang,
+                "chars": chars,
+                "tokens": int((stream != EOS).sum()),
+                "unk": int((stream == UNK).sum()),
+                "bpc": round(bpc, 3),
+            })
+            all_bits += bpc*chars
+            all_chars += chars
+
+            sentence_scores[lang][tokenizer] = sentence_bpc(losses, stream, lines)
+            print(f"{tokenizer:<8} {lang}  bpc {bpc:.3f}")
+
+            # all bits of all languages/all characters of all languages
+        results.append({"tokenizer": tokenizer, "lang": "all",
+                        "chars": all_chars, "tokens": "", "unk": "",
+                        "bpc": round(all_bits / all_chars, 3)})
+        print(f"{tokenizer:<8} all bpc {all_bits / all_chars:.3f}")
+
+    with open("results/test_bpc.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(results[0]))
+        writer.writeheader()
+        writer.writerows(results)
+    print("wrote results/test_bpc.csv")
+
+    #one row per sentence
+    with open("results/sentence_scores.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["lang", "line", "char", "bpe_2k", "bpe_10k", "sentence"])
+
+        for lang in LANGS:
+            lines = load_split("test", lang)
+            for i in range(len(lines)):
+                writer.writerow([lang, i,
+                                round(sentence_scores[lang]["char"][i], 3),
+                                round(sentence_scores[lang]["bpe_2k"][i], 3),
+                                round(sentence_scores[lang]["bpe_10k"][i], 3),
+                                lines[i]])
+    print("wrote results/sentence_scores.csv")

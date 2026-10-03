@@ -43,3 +43,25 @@ def language_shares(counts):
     for lang in LANGS:
         shares[lang] = rates[lang] / total
     return shares
+
+CUTOFF = 0.9 # cutoff for when a token belongs to a language (90% or more)
+def label_tokens(counts, shares):
+    vocab_size = len(counts["en"])
+    labels = []
+
+    for i in range(vocab_size):
+        # how often this token is used in all three langs together
+        used = counts["en"][i] + counts["tr"][i] + counts["zh"][i]
+
+        if used == 0:
+            labels.append("unused") # <unk> </s> etc
+            continue
+
+        label = "shared"
+        for lang in LANGS:
+            if shares[lang][i] >= CUTOFF:
+                label = lang
+
+        labels.append(label)
+
+    return labels
