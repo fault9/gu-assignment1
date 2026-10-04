@@ -1,0 +1,40 @@
+zh 471: 阮主時期，斌沏縣為柬埔寨領土。
+  char     bpc 8.648  16 tokens  ▁|阮|主|時|期|，|斌|沏|縣|為|柬|埔|寨|領|土|。
+  bpe_2k   bpc 11.291  28 tokens  ▁|<0xE9>|<0x98>|<0xAE>|主|時|期|，|<0xE6>|<0x96>|<0x8C>|<0xE6>|<0xB2>|<0x8F>|縣|為|<0xE6>|<0x9F>|<0xAC>|<0xE5>|<0x9F>|<0x94>|<0xE5>|<0xAF>|<0xA8>|領|土|。
+  bpe_10k  bpc 11.554  27 tokens  ▁|<0xE9>|<0x98>|<0xAE>|主|時期|，|<0xE6>|<0x96>|<0x8C>|<0xE6>|<0xB2>|<0x8F>|縣|為|<0xE6>|<0x9F>|<0xAC>|<0xE5>|<0x9F>|<0x94>|<0xE5>|<0xAF>|<0xA8>|領|土|。
+
+zh 5152: 公子取季隗，生伯儵、叔刘，以叔隗妻赵衰，生盾。
+  char     bpc 18.444  30 tokens  ▁|公|子|取|季|<0xE9>|<0x9A>|<0x97>|，|生|伯|<0xE5>|<0x84>|<0xB5>|、|叔|刘|，|以|叔|<0xE9>|<0x9A>|<0x97>|妻|赵|衰|，|生|盾|。
+  bpe_2k   bpc 11.476  40 tokens  ▁|公|子|取|季|<0xE9>|<0x9A>|<0x97>|，|生|伯|<0xE5>|<0x84>|<0xB5>|、|<0xE5>|<0x8F>|<0x94>|刘|，|以|<0xE5>|<0x8F>|<0x94>|<0xE9>|<0x9A>|<0x97>|妻|<0xE8>|<0xB5>|<0xB5>|<0xE8>|<0xA1>|<0xB0>|，|生|<0xE7>|<0x9B>|<0xBE>|。
+  bpe_10k  bpc 11.539  40 tokens  ▁|公|子|取|季|<0xE9>|<0x9A>|<0x97>|，|生|伯|<0xE5>|<0x84>|<0xB5>|、|<0xE5>|<0x8F>|<0x94>|刘|，|以|<0xE5>|<0x8F>|<0x94>|<0xE9>|<0x9A>|<0x97>|妻|<0xE8>|<0xB5>|<0xB5>|<0xE8>|<0xA1>|<0xB0>|，|生|<0xE7>|<0x9B>|<0xBE>|。
+
+tr 2925: Yüzölçümü 85.65 km² olan şehrin nüfusu 31 Aralık 2013 tarihi itibarı ile 63,437'dir.
+  char     bpc 2.291  85 tokens  ▁|Y|ü|z|ö|l|ç|ü|m|ü|▁|8|5|.|6|5|▁|k|m|²|▁|o|l|a|n|▁|ş|e|h|r|i|n|▁|n|ü|f|u|s|u|▁|3|1|▁|A|r|a|l|ı|k|▁|2|0|1|3|▁|t|a|r|i|h|i|▁|i|t|i|b|a|r|ı|▁|i|l|e|▁|6|3|,|4|3|7|'|d|i|r|.
+  bpe_2k   bpc 1.315  53 tokens  ▁Y|üz|öl|ç|üm|ü|▁|8|5|.|6|5|▁k|m|<0xC2>|<0xB2>|▁olan|▁ş|e|h|r|in|▁n|ü|f|us|u|▁3|1|▁Ar|al|ık|▁20|13|▁tar|ih|i|▁it|ib|ar|ı|▁ile|▁|6|3|,|4|3|7|'|d|ir|.
+  bpe_10k  bpc 0.817  24 tokens  ▁Yüz|ölçümü|▁8|5.|65|▁km|<0xC2>|<0xB2>|▁olan|▁şehrin|▁nüfusu|▁31|▁Aralık|▁2013|▁tarihi|▁itibarı|▁ile|▁6|3,|4|37|'|dir|.
+
+en 3445: The end result of doxing is a dox.
+  char     bpc 2.629  35 tokens  ▁|T|h|e|▁|e|n|d|▁|r|e|s|u|l|t|▁|o|f|▁|d|o|x|i|n|g|▁|i|s|▁|a|▁|d|o|x|.
+  bpe_2k   bpc 2.717  18 tokens  ▁The|▁|end|▁r|es|ul|t|▁of|▁d|o|x|ing|▁is|▁a|▁d|o|x|.
+  bpe_10k  bpc 3.061  12 tokens  ▁The|▁end|▁result|▁of|▁do|x|ing|▁is|▁a|▁do|x|.
+
+zh 471: 阮主時期，斌沏縣為柬埔寨領土。
+  char     bpc 8.648  16 tokens  ▁|阮|主|時|期|，|斌|沏|縣|為|柬|埔|寨|領|土|。
+  bpe_2k   bpc 11.291  28 tokens  ▁|<0xE9>|<0x98>|<0xAE>|主|時|期|，|<0xE6>|<0x96>|<0x8C>|<0xE6>|<0xB2>|<0x8F>|縣|為|<0xE6>|<0x9F>|<0xAC>|<0xE5>|<0x9F>|<0x94>|<0xE5>|<0xAF>|<0xA8>|領|土|。
+  bpe_10k  bpc 11.554  27 tokens  ▁|<0xE9>|<0x98>|<0xAE>|主|時期|，|<0xE6>|<0x96>|<0x8C>|<0xE6>|<0xB2>|<0x8F>|縣|為|<0xE6>|<0x9F>|<0xAC>|<0xE5>|<0x9F>|<0x94>|<0xE5>|<0xAF>|<0xA8>|領|土|。
+
+zh 5152: 公子取季隗，生伯儵、叔刘，以叔隗妻赵衰，生盾。
+  char     bpc 18.444  30 tokens  ▁|公|子|取|季|<0xE9>|<0x9A>|<0x97>|，|生|伯|<0xE5>|<0x84>|<0xB5>|、|叔|刘|，|以|叔|<0xE9>|<0x9A>|<0x97>|妻|赵|衰|，|生|盾|。
+  bpe_2k   bpc 11.476  40 tokens  ▁|公|子|取|季|<0xE9>|<0x9A>|<0x97>|，|生|伯|<0xE5>|<0x84>|<0xB5>|、|<0xE5>|<0x8F>|<0x94>|刘|，|以|<0xE5>|<0x8F>|<0x94>|<0xE9>|<0x9A>|<0x97>|妻|<0xE8>|<0xB5>|<0xB5>|<0xE8>|<0xA1>|<0xB0>|，|生|<0xE7>|<0x9B>|<0xBE>|。
+  bpe_10k  bpc 11.539  40 tokens  ▁|公|子|取|季|<0xE9>|<0x9A>|<0x97>|，|生|伯|<0xE5>|<0x84>|<0xB5>|、|<0xE5>|<0x8F>|<0x94>|刘|，|以|<0xE5>|<0x8F>|<0x94>|<0xE9>|<0x9A>|<0x97>|妻|<0xE8>|<0xB5>|<0xB5>|<0xE8>|<0xA1>|<0xB0>|，|生|<0xE7>|<0x9B>|<0xBE>|。
+
+tr 2925: Yüzölçümü 85.65 km² olan şehrin nüfusu 31 Aralık 2013 tarihi itibarı ile 63,437'dir.
+  char     bpc 2.291  85 tokens  ▁|Y|ü|z|ö|l|ç|ü|m|ü|▁|8|5|.|6|5|▁|k|m|²|▁|o|l|a|n|▁|ş|e|h|r|i|n|▁|n|ü|f|u|s|u|▁|3|1|▁|A|r|a|l|ı|k|▁|2|0|1|3|▁|t|a|r|i|h|i|▁|i|t|i|b|a|r|ı|▁|i|l|e|▁|6|3|,|4|3|7|'|d|i|r|.
+  bpe_2k   bpc 1.315  53 tokens  ▁Y|üz|öl|ç|üm|ü|▁|8|5|.|6|5|▁k|m|<0xC2>|<0xB2>|▁olan|▁ş|e|h|r|in|▁n|ü|f|us|u|▁3|1|▁Ar|al|ık|▁20|13|▁tar|ih|i|▁it|ib|ar|ı|▁ile|▁|6|3|,|4|3|7|'|d|ir|.
+  bpe_10k  bpc 0.817  24 tokens  ▁Yüz|ölçümü|▁8|5.|65|▁km|<0xC2>|<0xB2>|▁olan|▁şehrin|▁nüfusu|▁31|▁Aralık|▁2013|▁tarihi|▁itibarı|▁ile|▁6|3,|4|37|'|dir|.
+
+en 3445: The end result of doxing is a dox.
+  char     bpc 2.629  35 tokens  ▁|T|h|e|▁|e|n|d|▁|r|e|s|u|l|t|▁|o|f|▁|d|o|x|i|n|g|▁|i|s|▁|a|▁|d|o|x|.
+  bpe_2k   bpc 2.717  18 tokens  ▁The|▁|end|▁r|es|ul|t|▁of|▁d|o|x|ing|▁is|▁a|▁d|o|x|.
+  bpe_10k  bpc 3.061  12 tokens  ▁The|▁end|▁result|▁of|▁do|x|ing|▁is|▁a|▁do|x|.
+
