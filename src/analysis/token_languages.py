@@ -107,14 +107,3 @@ if __name__ == "__main__":
         writer.writeheader()
         writer.writerows(rows)
     print(rows)
-
-if __name__ == "__main__":
-    rows = []
-    for tokenizer in BPE_TOKENIZERS:
-        rows.append(summarize(tokenizer))
-
-    with open("results/token_languages.csv", "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
-        writer.writeheader()
-        writer.writerows(rows)
-    print(rows)
