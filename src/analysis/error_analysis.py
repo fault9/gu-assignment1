@@ -1,4 +1,4 @@
-"""Error analysis: test sentences where the models disagree most."""
+"""Error analysis - test sentences where the models disagree most."""
 
 import csv
 
@@ -20,19 +20,6 @@ def load_scores():
             scores[(row["lang"], int(row["line"]))] = row
     return scores
 
-
-if __name__ == "__main__":
-    scores = load_scores()
-
-    for lang, line in PICKS:
-        sentence = load_split("test", lang)[line]
-        row = scores[(lang, line)]
-        print(f"{lang} {line}: {sentence}")
-
-        for name in TOKENIZERS:
-            pieces = load_tokenizer(name).encode(sentence, out_type=str)
-            print(f"  {name:<8} bpc {row[name]}  {len(pieces)} tokens  {'|'.join(pieces)}")
-        print()
 
 if __name__ == "__main__":
     scores = load_scores()
